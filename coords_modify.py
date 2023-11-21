@@ -178,12 +178,7 @@ def out_of_china(lng, lat):
 ########################################################
 ########################################################
 
-df = pd.read_csv(r"F:\Research\全国房价\SH_housepoi_19.csv")
-df[['gcjLON', 'gcjLAT']] = df.apply(
-    lambda row: pd.Series(bd09togcj02(row['longitude'], row['latitude'])),
-    axis=1)
+df = pd.read_csv('csv')
 df[['wgs_lon', 'wgs_lat']] = df.apply(
-    lambda row: pd.Series(gcj02towgs84(row['gcjLON'], row['gcjLAT'])), axis=1)
-del df['longitude'], df['latitude']
-del df['gcjLON'], df['gcjLAT']
-df.to_csv(r"F:\Research\全国房价\SH_wgs19.csv", index=False)
+    lambda row: pd.Series(gcj02towgs84(row['longitude'], row['latitude'])), axis=1)
+df.to_csv('newcsv', index=False)
