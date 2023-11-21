@@ -47,11 +47,11 @@ import numpy as np
 from shapely.geometry import LineString
 
 
-temp = gpd.read_file(r"C:\Users\xuzzh\Desktop\gistemp\road.shp")
+temp = gpd.read_file('shp')
 geometrylist = np.array(temp['geometry'])
 
 geometrylistnew = []
-meanxd=0.015
+meanxd = 0.015
 
 for j in range(len(geometrylist)):
     seqpoint =geometrylist[j].coords
@@ -61,5 +61,5 @@ for j in range(len(geometrylist)):
     geometrylistnew.extend(linelist)
     print(len(linelist))
 
-s =gpd.GeoSeries(geometrylistnew)
-s.to_file(r"C:\Users\xuzzh\Desktop\gistemp\segment_road.shp") 
+s = gpd.GeoSeries(geometrylistnew)
+s.to_file('newshp') 
